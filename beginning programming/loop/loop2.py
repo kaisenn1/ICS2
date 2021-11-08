@@ -1,6 +1,6 @@
 #Name Kaisen
 #Date November 8, 2021
-#Title Loop1
+#Title Loop2
 #Description
 
 name = input('Please enter your name: ')
