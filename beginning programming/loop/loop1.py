@@ -6,4 +6,3 @@
 true = True
 while(true):
     print('Have a good day!')
-    ##break
