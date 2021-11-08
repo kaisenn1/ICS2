@@ -1,4 +1,9 @@
 #Name Kaisen
-#Date October 27, 2021
+#Date Novemeber 8, 2021
 #Title Loop1
 #Description
+
+true = True
+while(true):
+    print('Have a good day!')
+    ##break
