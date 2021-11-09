@@ -1,7 +1,7 @@
 # Name Kaisen
 # Date November 8, 2021
 # Title Loop4
-# Description
+# Description endlessly asks and finds the sum of two numbers
 
 true = True
 while (true):

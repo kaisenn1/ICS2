@@ -1,7 +1,7 @@
 # Name Kaisen
 # Date November 8, 2021
-# Title Loop6
-# Description
+# Title Loop11
+# Description prints numbers from 1 to 10
 
 count = 1
 while count <= 10:

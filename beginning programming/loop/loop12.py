@@ -1,7 +1,7 @@
 # Name Kaisen
 # Date November 8, 2021
-# Title Loop6
-# Description
+# Title Loop12
+# Description finds the sum of the numbers from 1 to 10
 
 count = 1
 x = 0

@@ -1,7 +1,7 @@
 # Name Kaisen
 # Date November 8, 2021
-# Title Loop6
-# Description
+# Title Loop16
+# Description asks for total amount of marks then asks for individual mark, total amount of marktimes
 
 totalmarks = int(input('Please enter the total number of marks: '))
 x = 1

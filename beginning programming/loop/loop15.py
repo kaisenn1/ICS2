@@ -1,7 +1,7 @@
 # Name Kaisen
 # Date November 8, 2021
-# Title Loop6
-# Description
+# Title Loop15
+# Description finds average of the numbers from 1 to 15
 
 sum = 0
 x = 1

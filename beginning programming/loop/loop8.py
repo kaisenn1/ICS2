@@ -1,7 +1,8 @@
 # Name Kaisen
 # Date November 8, 2021
-# Title Loop6
-# Description
+# Title Loop8
+# Description endlessly asks for number then squares it until a negative number is inputted
+
 
 true = True
 while (true):

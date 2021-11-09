@@ -1,7 +1,7 @@
 # Name Kaisen
 # Date November 8, 2021
-# Title Loop6
-# Description
+# Title Loop13
+# Description prints numbers 1 to 15 then prints the total sum
 
 count = 1
 x = 0

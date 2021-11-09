@@ -1,7 +1,7 @@
 # Name Kaisen
 # Date November 8, 2021
 # Title Loop6
-# Description
+# Description endlessly asks for a name and number until a negative number is inputted
 
 true = True
 while (true):

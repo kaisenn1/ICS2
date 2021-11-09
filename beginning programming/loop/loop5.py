@@ -1,7 +1,7 @@
 # Name Kaisen
 # Date November 8, 2021
 # Title Loop5
-# Description
+# Description endlessly asks and finds the sum of an infinite amount of numbers
 
 import time
 

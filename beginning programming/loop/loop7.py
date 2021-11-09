@@ -1,7 +1,7 @@
 # Name Kaisen
 # Date November 8, 2021
-# Title Loop6
-# Description
+# Title Loop7
+# Description endlessly asks for length and width to find area until inputted length is negative
 
 true = True
 while (true):
