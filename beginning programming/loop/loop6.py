@@ -6,7 +6,7 @@
 true = True
 while (true):
     n = input('Please enter your name: ')
-    a = int(input('Please enter a positive or negative number: '))
+    a = int(input('Please enter a number: '))
     if a > 0:
         true = True
     if a < 0:
