@@ -3,7 +3,6 @@
 #Title String5
 #Description
 
-
 average = 0
 totalmarks = 0
 def marks():
