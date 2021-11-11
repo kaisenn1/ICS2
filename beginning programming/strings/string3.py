@@ -4,8 +4,7 @@
 #Description
 
 count = 0
-true = True
-while (true):
+while (True):
     names = input('Please enter student name: ')
 
     if names == 'quit':
