@@ -5,4 +5,4 @@
 
 first = input('Please enter your first name: ')
 surname = input('Please enter your surname: ')
-print(first + ', ' + surname)
+print(surname + ', ' + first)
