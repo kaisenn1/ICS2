@@ -3,22 +3,9 @@
 #Title String5
 #Description
 
-average = 0
-totalmarks = 0
-def marks():
-    nonround = average / totalmarks
-    print(round(nonround, 2))
-while (True):
-    subject = input("Enter subject: ")
-    if subject == 'quit':
-        marks()
+count = 0
+while count < 5:
+    word = input('Please enter word: ')
+    count += 1
+    if count == 5 or word == 'stop':
         break
-
-    mark = input("Enter mark: ")
-    if mark == 'quit':
-        marks()
-        break
-    marki = int(mark)
-    totalmarks += 1
-    average += marki
-
