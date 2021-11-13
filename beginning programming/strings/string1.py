@@ -1,7 +1,7 @@
 #Name Kaisen
 #Date Novemeber 8, 2021
 #Title String1
-#Description
+#Description asks for first and lastname, then prints it
 
 first = input('Please enter your first name: ')
 surname = input('Please enter your surname: ')

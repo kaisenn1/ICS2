@@ -1,7 +1,7 @@
 #Name Kaisen
 #Date Novemeber 8, 2021
 #Title String3
-#Description
+#Description prints amount of students after every student name entry
 
 count = 0
 while (True):

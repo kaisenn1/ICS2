@@ -1,7 +1,7 @@
 #Name Kaisen
 #Date Novemeber 8, 2021
 #Title String5
-#Description
+#Description asks for subject and mark, prints average mark if quit is entered
 
 average = 0
 totalmarks = 0

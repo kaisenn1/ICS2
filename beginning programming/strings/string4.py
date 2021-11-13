@@ -1,7 +1,7 @@
 #Name Kaisen
 #Date Novemeber 8, 2021
 #Title String4
-#Description
+#Description asks for subject and mark
 
 while (True):
     subject = input("Enter subject: ")

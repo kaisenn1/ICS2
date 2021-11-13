@@ -1,7 +1,7 @@
 #Name Kaisen
 #Date Novemeber 8, 2021
 #Title String2
-#Description
+#Description asks for student name, then prints amount of students if quit is entered
 
 count = 0
 while (True):

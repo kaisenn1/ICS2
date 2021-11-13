@@ -1,7 +1,7 @@
 #Name Kaisen
 #Date Novemeber 8, 2021
 #Title String8
-#Description
+#Description asks user to enter up to 5 names, program ends if 5 names is reached or end is typed
 
 count = 0
 while count < 5:
