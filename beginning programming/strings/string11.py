@@ -9,7 +9,11 @@ while (True):
     x += 1
     print('Loop execution number', x)
     more = input("Type 'more' to continue: ")
+
     if more == 'more':
         continue
+    elif more != 'more':
+        print("Not 'more'")
+        break
     elif more == 'stop':
         break
