@@ -1,7 +1,7 @@
 # Name Kaisen
 # Date November 8, 2021
 # Title Loop13
-# Description prints numbers 1 to 15 then prints the total sum
+# Description counts from 0 to 100, then back down
 
 for i in range (101):
     print(i)

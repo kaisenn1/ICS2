@@ -1,7 +1,7 @@
 # Name Kaisen
 # Date November 8, 2021
 # Title Loop7
-# Description endlessly asks for length and width to find area until inputted length is negative
+# Description  asks for length and width to find area until inputted length is negative 4 times
 
 true = True
 while (true):
