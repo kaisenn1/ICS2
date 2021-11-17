@@ -1,6 +1,6 @@
-# Name Kaisen
-# Date November 8, 2021
-# Title Loop4
+#Name Kaisen
+#Date Novemeber 16, 2021
+#Title for4
 # Description asks and finds the sum of two numbers 5 times
 
 for i in range(5):

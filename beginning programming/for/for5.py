@@ -1,6 +1,6 @@
-# Name Kaisen
-# Date November 8, 2021
-# Title Loop5
+#Name Kaisen
+#Date Novemeber 16, 2021
+#Title for5
 # Description asks and finds the sum of an infinite amount of numbers 5 times
 
 import time

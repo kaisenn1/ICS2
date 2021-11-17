@@ -1,6 +1,6 @@
-# Name Kaisen
-# Date November 8, 2021
-# Title Loop13
+#Name Kaisen
+#Date Novemeber 16, 2021
+#Title for15
 # Description asks for integer, outputs integer + number and its square in a table
 
 x = int(input('Please enter an integer: '))

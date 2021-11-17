@@ -1,6 +1,6 @@
-# Name Kaisen
-# Date November 8, 2021
-# Title Loop13
+#Name Kaisen
+#Date Novemeber 16, 2021
+#Title for11
 # Description outputs total sum from numbers 5 to 15
 
 y = 0

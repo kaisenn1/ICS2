@@ -1,6 +1,6 @@
-# Name Kaisen
-# Date November 8, 2021
-# Title Loop7
+#Name Kaisen
+#Date Novemeber 16, 2021
+#Title for6
 # Description  asks for length and width to find area until inputted length is negative 4 times
 
 true = True

@@ -1,6 +1,6 @@
-# Name Kaisen
-# Date November 8, 2021
-# Title Loop13
+#Name Kaisen
+#Date Novemeber 16, 2021
+#Title for7
 # Description prints numbers 1 to 15 then prints the total sum using a for loop
 
 

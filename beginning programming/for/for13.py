@@ -1,6 +1,6 @@
-# Name Kaisen
-# Date November 8, 2021
-# Title Loop13
+#Name Kaisen
+#Date Novemeber 16, 2021
+#Title for13
 # Description asks for a word, asks for how many times to print word, prints word x times
 
 x = input('Please enter a word: ')
