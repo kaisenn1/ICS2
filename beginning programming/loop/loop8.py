@@ -3,7 +3,6 @@
 # Title Loop8
 # Description endlessly asks for number then squares it until a negative number is inputted
 
-
 true = True
 while (true):
     n = int(input('Please enter  a number: '))
