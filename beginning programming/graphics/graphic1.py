@@ -1,7 +1,7 @@
 #Name Kaisen
 #Date Novemeber 26, 2021
 #Title graphic1
-# Description prints kaisen in center of screen
+#Description prints kaisen in center of screen
 
 import pygame
 from pygame.locals import *

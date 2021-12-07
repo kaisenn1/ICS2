@@ -1,7 +1,7 @@
 #Name Kaisen
 #Date Novemeber 26, 2021
 #Title graphic2
-# Description prints inputted name on inputted row
+#Description draws 10 stars vertically across the screen, user chooses starting point, if star will touch edge, program quits
 
 import pygame
 import time

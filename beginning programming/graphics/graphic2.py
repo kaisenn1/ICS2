@@ -1,7 +1,7 @@
 #Name Kaisen
 #Date Novemeber 26, 2021
 #Title graphic2
-# Description prints inputted name on inputted row
+#Description prints inputted name on inputted row
 
 import pygame
 from pygame.locals import *

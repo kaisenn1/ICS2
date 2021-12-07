@@ -1,7 +1,7 @@
 #Name Kaisen
 #Date Novemeber 26, 2021
 #Title graphic2
-# Description prints inputted name on inputted row
+#Description draws 10 stars diagonally across the screen
 
 import pygame
 
