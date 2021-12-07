@@ -32,9 +32,9 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-    pygame.draw.rect(screen, colour,(0, 0,640,160))
-    pygame.draw.rect(screen, colour2,(0, 120,640,160))
-    pygame.draw.rect(screen, colour,(0, 240,640,160))
-    pygame.draw.rect(screen, colour2,(0, 360,640,160))
+    pygame.draw.rect(screen, colour,(0, 0,160,480))
+    pygame.draw.rect(screen, colour2,(160, 0,160,480))
+    pygame.draw.rect(screen, colour,(320, 0,160,480))
+    pygame.draw.rect(screen, colour2,(480, 0,160,480))
     pygame.display.update()
 pygame.quit()
