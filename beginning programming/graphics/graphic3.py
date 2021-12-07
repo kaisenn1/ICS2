@@ -13,7 +13,6 @@ black = (0,0,0)
 
 pygame.init()
 screen = pygame.display.set_mode( ( SCREEN_WIDTH, SCREEN_HEIGHT ) )
-centre_coord = (SCREEN_WIDTH//2,SCREEN_HEIGHT//2)
 star = pygame.image.load('star.png')
 smallStar = pygame.transform.scale(star,(50,50))
 
