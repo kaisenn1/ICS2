@@ -1,10 +1,9 @@
 #Name Kaisen
 #Date Novemeber 26, 2021
 #Title graphic1
-# Description prints kaisen in center of screen
+#Description creates 4 horizontal stripes, alternates stripe colour between red and green
 
 import pygame
-from pygame.locals import *
 
 red = (255, 0, 0)
 green = (0, 255, 0)

@@ -1,7 +1,7 @@
 #Name Kaisen
 #Date Novemeber 26, 2021
 #Title graphic7
-# Description changes background colour to red
+#Description allows user to change background colour
 
 import pygame
 import time

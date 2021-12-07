@@ -1,8 +1,7 @@
 #Name Kaisen
 #Date Novemeber 26, 2021
 #Title graphic1
-# Description prints kaisen in center of screen
-
+#Description creates 8 vertical stripes, asks for three colours, alternates stripe colour between three inputted colours
 import pygame
 from pygame.locals import *
 

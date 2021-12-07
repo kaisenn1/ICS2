@@ -1,10 +1,9 @@
 #Name Kaisen
 #Date Novemeber 26, 2021
 #Title graphic2
-#Description prints inputted name on inputted row
+#Description asks user for colour, name, and coordinates. sets background colour, and places name at inputted coordinates
 
 import pygame
-from pygame.locals import *
 
 black = (0, 0, 0)
 gray = (127, 127, 127)
