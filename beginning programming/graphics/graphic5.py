@@ -1,6 +1,6 @@
 #Name Kaisen
 #Date Novemeber 26, 2021
-#Title graphic2
+#Title graphic5
 #Description draws 10 stars vertically across the screen, user chooses starting point
 
 import pygame

@@ -1,9 +1,9 @@
 #Name Kaisen
 #Date Novemeber 26, 2021
-#Title graphic1
+#Title graphic13
 #Description creates 8 vertical stripes, asks for three colours, alternates stripe colour between three inputted colours
+
 import pygame
-from pygame.locals import *
 
 black = (0, 0, 0)
 gray = (127, 127, 127)

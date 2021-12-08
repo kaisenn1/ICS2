@@ -1,6 +1,6 @@
 #Name Kaisen
 #Date Novemeber 26, 2021
-#Title graphic2
+#Title graphic9
 #Description asks user for colour, name, and coordinates. sets background colour, and places name at inputted coordinates
 
 import pygame

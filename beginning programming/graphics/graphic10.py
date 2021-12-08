@@ -1,6 +1,6 @@
 #Name Kaisen
 #Date Novemeber 26, 2021
-#Title graphic1
+#Title graphic10
 #Description creates 4 horizontal stripes, alternates stripe colour between red and green
 
 import pygame

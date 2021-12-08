@@ -1,6 +1,6 @@
 #Name Kaisen
 #Date Novemeber 26, 2021
-#Title graphic2
+#Title graphic3
 #Description draws 10 stars vertically down the center of the screen using a for loop
 
 import pygame
