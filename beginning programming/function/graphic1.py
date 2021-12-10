@@ -15,7 +15,10 @@ if not whole{
 return price
 '''
 
-#no need to set variables, only one variable that is static
+print('First-Class Letter Cost Calculator')
+weight = float(input('Please enter envelope weight in grams: ')) #takes weight
+special_delivery = input('Is special delivery required?(Yes/No): ') #takes answer
+
 def calccost(weight, special_delivery):
     price = 1.05 + (0.35 * (round(weight) - 1)) #sets base price, then multiples gram cost by weight, removing 1 gram from weight because of inital cost
     if weight != round(weight): #tests if weight is rounded, if weight is not equal to its rounded version, it means it is a partial gram and needs cost added
@@ -24,7 +27,4 @@ def calccost(weight, special_delivery):
         price += 15
     return price
 
-print('First-Class Letter Cost Calculator')
-weight = float(input('Please enter envelope weight in grams: ')) #takes wieght
-special_delivery = input('Is special delivery required?(Yes/No): ') #takes answer
 print('$' + str(calccost(weight,special_delivery))) #executes function, then converts function response to string, to be concatnated with "$"
