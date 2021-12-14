@@ -27,4 +27,4 @@ def calccost(weight, special_delivery):
         price += 15
     return price
 
-print('$' + str(calccost(weight,special_delivery))) #executes function, then converts function response to string, to be concatnated with "$"
+print('$' + str(round(calccost(weight,special_delivery), 2))) #executes function, then converts function response to string, to be concatnated with "$"
