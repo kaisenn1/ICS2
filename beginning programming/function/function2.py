@@ -1,30 +1,26 @@
 #Name Kaisen
 #Date December 14, 2021
 #Title function2
-#Description
+#Description gallons per mile ratio calculator
 
 '''
 pseudocode:
-ask for weight
-ask if special delivery is wanted
-pass weight and if special delivery is wanted into function
-calculate price of first gram + after first grame price * weight - 1
-if not whole{
-    add 35 cents
-}
-return price
+set litre to gallon ratio
+ask for litres consumes
+ask for miles drive
+calculate litres to gallons
+calculate miles / gallons
+    return answer
+print answer
 '''
 
-print('First-Class Letter Cost Calculator')
-weight = float(input('Please enter envelope weight in grams: ')) #takes weight
-special_delivery = input('Is special delivery required?(Yes/No): ') #takes answer
+LITRE = 0.264179
 
-def calccost(weight, special_delivery):
-    price = 1.05 + (0.35 * (round(weight) - 1)) #sets base price, then multiples gram cost by weight, removing 1 gram from weight because of inital cost
-    if weight != round(weight): #tests if weight is rounded, if weight is not equal to its rounded version, it means it is a partial gram and needs cost added
-        price += 0.35
-    if special_delivery.lower() == 'yes': #converts to lowercase in case user types upercase
-        price += 15
-    return price
+def calccost(litres, miles):
+    gallons = litres * LITRE
+    ratio = miles / gallons
+    return ratio
 
-print('$' + str(round(calccost(weight,special_delivery), 2))) #executes function, then converts function response to string, to be concatnated with "$"
+litres = int(input('How many litres of fuel have been consumed?: '))
+miles = int(input('How many miles has been driven?: '))
+print('Miles Per Gallon is:', round(calccost(litres,miles),2)) #executes function, then converts function response to string, to be concatnated with "$"

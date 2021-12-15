@@ -1,7 +1,7 @@
 #Name Kaisen
 #Date December 14, 2021
 #Title function1
-#Description
+#Description letter cost calculator, asks for weight of letter and if special delivery is needed, then calculates cost
 
 '''
 pseudocode:
