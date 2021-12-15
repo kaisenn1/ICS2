@@ -26,3 +26,7 @@ def start():
     total = convert_FEET(feet) + convert_INCH(inches) #adds meters and inches
     print(str(round(total, 2))+ 'm') #prints result slightly rounded
 start()
+
+#answer seems to vary from this code to websites to websites
+#asking google 5 feet 8 inches in cm results to 172.72
+#https://www.google.com/search?client=safari&rls=en&q=5+feet+8+inches+in+cm&ie=UTF-8&oe=UTF-8
