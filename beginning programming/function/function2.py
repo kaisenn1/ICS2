@@ -1,39 +1,30 @@
 #Name Kaisen
-#Date December 10, 2021
-#Title function1
+#Date December 14, 2021
+#Title function2
 #Description
+
 '''
-Pseudocode:
-get current rate
-ask for which currency to convert to
-ask for amount to be converted
-pass amount in function corresponding for currency to convert to
-    return value
-print value of amount converted into currency
+pseudocode:
+ask for weight
+ask if special delivery is wanted
+pass weight and if special delivery is wanted into function
+calculate price of first gram + after first grame price * weight - 1
+if not whole{
+    add 35 cents
+}
+return price
 '''
 
+print('First-Class Letter Cost Calculator')
+weight = float(input('Please enter envelope weight in grams: ')) #takes weight
+special_delivery = input('Is special delivery required?(Yes/No): ') #takes answer
 
-from forex_python.converter import CurrencyRates  #current exchange rate
+def calccost(weight, special_delivery):
+    price = 1.05 + (0.35 * (round(weight) - 1)) #sets base price, then multiples gram cost by weight, removing 1 gram from weight because of inital cost
+    if weight != round(weight): #tests if weight is rounded, if weight is not equal to its rounded version, it means it is a partial gram and needs cost added
+        price += 0.35
+    if special_delivery.lower() == 'yes': #converts to lowercase in case user types upercase
+        price += 15
+    return price
 
-rate = CurrencyRates()
-
-def convert_rateUS(amount):               #converts usd to cad
-    value = rate.convert('USD', 'CAD', amount)
-    return value
-
-def convert_rateCA(amount):              #converts cad to usd
-    value = rate.convert('CAD', 'USD', amount)
-    return value
-
-def start():
-    currency = input('Convert USD -> CAD OR CAD -> USD? [USD/CAD]: ')
-    amount = int(input('How much money is to be converted?: '))
-    if currency != 'USD':
-        print("$" + str(amount), "CAD exchanges to $" + str(round(convert_rateCA(amount),2)), "USD")
-    else:
-        print("$" + str(amount), "USD exchanges to $" + str(round(convert_rateUS(amount),2)), "CAD")
-
-print("Currency Exchange Rate Machine\n - Today's Rates -")
-print('Current Rate Of 1 USD -> CAD Is:', convert_rateUS(1))
-print('Current Rate Of 1 CAD -> USD Is:', convert_rateCA(1))
-start()
+print('$' + str(round(calccost(weight,special_delivery), 2))) #executes function, then converts function response to string, to be concatnated with "$"

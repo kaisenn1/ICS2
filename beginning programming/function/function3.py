@@ -1,7 +1,7 @@
 #Name Kaisen
-#Date December 10, 2021
-#Title function1
-#Description
+#Date December 14, 2021
+#Title function3
+#Description displays current currency rates, asks what currency user would like to exchange too, then displayes exchanged value of inputed currency
 '''
 Pseudocode:
 get current rate
@@ -12,18 +12,27 @@ pass amount in function corresponding for currency to convert to
 print value of amount converted into currency
 '''
 
-def convert_FEET(feet):               #converts usd to cad
-    value = 0.3048 * feet
+from forex_python.converter import CurrencyRates  #current exchange rate
+
+rate = CurrencyRates()
+
+def convert_rateUS(amount):               #converts usd to cad
+    value = rate.convert('USD', 'CAD', amount)
     return value
 
-def convert_INCH(inches):              #converts cad to usd
-    value = inches * 2.54
+def convert_rateCA(amount):              #converts cad to usd
+    value = rate.convert('CAD', 'USD', amount)
     return value
 
 def start():
-    feet = int(input('Please enter amount of feet: : '))
-    inches = int(input('Please enter amount of inches: : '))
-    convert_FEET(feet)
-    convert_INCH(inches)
+    currency = input('Convert USD -> CAD OR CAD -> USD? [USD/CAD]: ')
+    amount = int(input('How much money is to be converted?: '))
+    if currency != 'USD': #if currency is not usd, then it must be CAD and runs CAD to usd
+        print("$" + str(amount), "CAD exchanges to $" + str(round(convert_rateCA(amount),2)), "USD")
+    else: #if it is USD, then converts USD to cad
+        print("$" + str(amount), "USD exchanges to $" + str(round(convert_rateUS(amount),2)), "CAD")
 
+print("Currency Exchange Rate Machine\n - Today's Rates -")
+print('Current Rate Of 1 USD -> CAD Is:', convert_rateUS(1)) #current rates of USD to cad and vice versa
+print('Current Rate Of 1 CAD -> USD Is:', convert_rateCA(1))
 start()
