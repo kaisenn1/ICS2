@@ -17,10 +17,10 @@ print answer
 LITRE = 0.264179
 
 def calccost(litres, miles):
-    gallons = litres * LITRE
-    ratio = miles / gallons
+    gallons = litres * LITRE #calculates gallons
+    ratio = miles / gallons #calculates gallon to mile ratio
     return ratio
 
 litres = int(input('How many litres of fuel have been consumed?: '))
 miles = int(input('How many miles has been driven?: '))
-print('Miles Per Gallon is:', round(calccost(litres,miles),2)) #executes function, then converts function response to string, to be concatnated with "$"
+print('Miles Per Gallon is:', round(calccost(litres,miles),2)) #prints and executes rounded function result
