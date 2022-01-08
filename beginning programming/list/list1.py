@@ -1,9 +1,10 @@
-#Name Kaisen
-#Date January 7, 2022
-#Title list1
-#Description asks for heights, then output heights above average
 '''
-pseudocode
+Name: Kaisen
+January 7, 2022
+Title: list1
+Description: asks for heights, then output heights above average
+---
+pseudocode:
 set lists for heights and heights above average
 ask for total number of heights
 ask for height x times, where x is the number of heights inputted
