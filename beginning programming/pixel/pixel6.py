@@ -1,7 +1,7 @@
 #Name Kaisen
 #Date Novemeber 26, 2021
-#Title graphic12
-#Description creates 4 vertical stripes, asks for two colours, alternates stripe colour between two inputted colours
+#Title pixel1
+#Description 5 pixel wide 100 pixel long band
 
 import pygame
 
@@ -18,22 +18,25 @@ magenta = (255, 0, 255)
 SCREEN_WIDTH = 640
 SCREEN_HEIGHT = 480
 
-print('Choose two colours from the below list to set strip colours')
+width = int(input('Band Width in Pixels:'))
+length = int(input('Band Length in Pixels:'))
+print('--- Colour from Below List ---')
 print('Black, Gray, White, Red, Green, Blue, Yellow, Cyan, Magenta')
-colour = input('Input first colour name: ')
-colour2 = input('Input second colour name: ')
-
+colour = input('Colour Name: ')
 pygame.init()
 screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
 
 running = True
+
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-    pygame.draw.rect(screen, colour,(0, 0,160,480))
-    pygame.draw.rect(screen, colour2,(160, 0,160,480))
-    pygame.draw.rect(screen, colour,(320, 0,160,480))
-    pygame.draw.rect(screen, colour2,(480, 0,160,480))
+    x = 240
+    screen.fill(white)
+    for i in range(width):
+        pygame.draw.line(screen,colour,(320,x),(320 + length,x))
+        x += 1
+
     pygame.display.update()
 pygame.quit()
