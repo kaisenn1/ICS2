@@ -1,6 +1,6 @@
 #Name Kaisen
 #Date Novemeber 26, 2021
-#Title pixel1
+#Title pixel2
 #Description vertical red line
 
 import pygame

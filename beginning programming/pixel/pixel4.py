@@ -1,6 +1,6 @@
 #Name Kaisen
 #Date Novemeber 26, 2021
-#Title pixel1
+#Title pixel4
 #Description 5 pixel wide 100 pixel long band
 
 import pygame

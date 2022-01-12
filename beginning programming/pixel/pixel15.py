@@ -1,8 +1,7 @@
 #Name Kaisen
 #Date Novemeber 26, 2021
-#Title pixel1
-#Description vertical red line
-
+#Title pixel15
+#Description lolipop
 import pygame
 
 gray = (127, 127, 127)
