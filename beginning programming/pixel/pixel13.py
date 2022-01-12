@@ -6,7 +6,7 @@
 import pygame
 
 white = (255,255,255)
-purple = (221,160,221)
+cyan = (0, 255, 255)
 
 
 SCREEN_WIDTH = 640
@@ -21,7 +21,10 @@ while running:
         if event.type == pygame.QUIT:
             running = False
     screen.fill(white)
-    pygame.draw.rect(screen, purple,(50, 50,50,25))
-    pygame.draw.polygon(screen, purple, ((100, 25), (100, 100), (150, 62)))
+    pygame.draw.line(screen,cyan,(0,0),(100,0))
+    pygame.draw.line(screen,cyan,(0,20),(100,20))
+    pygame.draw.line(screen,cyan,(0,0),(0,20))
+    pygame.draw.line(screen,cyan,(100,0),(100,20))
+    pygame.draw.circle(screen,cyan,(50,10),8)
     pygame.display.update()
 pygame.quit()

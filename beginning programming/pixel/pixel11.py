@@ -21,7 +21,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
     screen.fill(white)
-    pygame.draw.rect(screen, purple,(50, 50,50,25))
-    pygame.draw.polygon(screen, purple, ((100, 25), (100, 100), (150, 62)))
+    pygame.draw.polygon(screen, purple, ((50, 100), (100, 50), (150, 100)))
+    pygame.draw.rect(screen, purple, (50, 110, 100, 59))
     pygame.display.update()
 pygame.quit()
