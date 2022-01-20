@@ -18,8 +18,6 @@ SCREEN_WIDTH = 640
 SCREEN_HEIGHT = 480
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-sysfont = pygame.font.get_default_font()
 
-def mousepos():
-    x, y = pygame.mouse.get_pos()
-    return x,y
+
+
