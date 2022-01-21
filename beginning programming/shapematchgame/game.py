@@ -5,7 +5,7 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 star = pygame.image.load('newstar.png')
 rectangle = pygame.image.load('rectangle.png')
 shapes = [rectangle, star]
-
+'''test'''
 class Cooldown():
     def __init__(self):
         self.cooltime = 5000
