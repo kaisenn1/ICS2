@@ -1,14 +1,33 @@
-import pygame
-rectangle = pygame.Rect(5, 5, 20, 20) # x, y, width, height
+from setup import *
+import random
+pygame.init()
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+class Cooldown():
+    def __init__(self):
+        self.cooltime = 2500
+        self.oldtime = pygame.time.get_ticks()
 
-def is_over(rect, pos):
-    # function takes a tuple of (x, y) coords and a pygame.Rect object
-    # returns True if the given rect overlaps the given coords
-    # else it returns False
-    return True if rect.collidepoint(pos[0], pos[1]) else False
+    def Shapes(self):
+        stime = pygame.time.get_ticks()
+        star = pygame.image.load('newstar.png')
+        rectangle = pygame.image.load('rectangle.png')
+        shapes = [star, rectangle]
+        image = shapes[random.randint(0, 1)]
+        rect = image.get_rect()
+        if stime - self.oldtime >= self.cooltime:
+            self.oldtime = stime
+            rect.center = (100,100)
+            screen.blit(image, rect)
+            pygame.display.update()
+        return rect
 
-pos = pygame.mouse.get_pos() # gets the current mouse coords
-if is_over(rectangle, pos): # pass in the pygame.Rect and the mouse coords
-    print('The mouse is over the rectangle')
-else:
-    print('The mouse is not over the rectangle')
+    def randShape(self):
+        if self.Shapes().collidepoint(pygame.mouse.get_pos()):
+            print('collision')
+
+
+testing = Cooldown()
+running = True
+while (running):
+    testing.randShape()
+pygame.quit()
