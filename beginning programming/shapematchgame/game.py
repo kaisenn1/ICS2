@@ -5,10 +5,10 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 star = pygame.image.load('newstar.png')
 rectangle = pygame.image.load('rectangle.png')
 shapes = [rectangle, star]
-'''test'''
+
 class Cooldown():
     def __init__(self):
-        self.cooltime = 5000
+        self.cooltime = 2000
         self.cooltime1 = 250
         self.oldtime = pygame.time.get_ticks()
     def random1(self):
@@ -17,47 +17,32 @@ class Cooldown():
 
     score1 = 0
     def randShape(self):
-        time = pygame.time.get_ticks()
         image = shapes[random.randint(0, 1)]
         rect = image.get_rect()
         copy = rect.copy()
         copy.center = self.random1()
-        if time - self.oldtime >= self.cooltime:
-            self.oldtime = time
-            screen.fill(white)
-            pygame.display.update()
-            rect.center = self.random1()
-            screen.blit(image, rect)
-            pygame.display.update()
-        for event in pygame.event.get():
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                self.score1 += 1
-                print(self.score1)
-        if copy.collidepoint(pygame.mouse.get_pos()) and pygame.mouse.get_pressed()[0]:
-            screen.fill(white)
-            pygame.display.update()
-        return image
+        screen.fill(white)
+        pygame.display.update()
+        rect.center = self.random1()
+        screen.blit(image, rect)
+        pygame.display.update()
 
-    def otherShape(self, image):
-        time = pygame.time.get_ticks()
-        shapes.remove(image)
-        image2 = shapes[0]
-        if time - self.oldtime >= self.cooltime1:
-            self.oldtime = time
-            rect = image2.get_rect()
-            pygame.display.update()
-            rect.center = self.random1()
-            screen.blit(image2, rect)
-            pygame.display.update()
+        return copy
 
-
-
+    def test(self):
+        if self.randShape().collidepoint(pygame.mouse.get_pos()):
+            print('ye')
 testing = Cooldown()
 running = True
 screen.fill(white)
-
+cooltime = 5000
+oldtime = pygame.time.get_ticks()
 while (running):
-    testing.otherShape(testing.randShape())
+    time = pygame.time.get_ticks()
+    if time - oldtime >= cooltime:
+        oldtime = time
+        testing.test()
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
