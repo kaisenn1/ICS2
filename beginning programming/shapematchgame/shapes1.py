@@ -1,59 +1,84 @@
-import pygame as pg
-from pygame.math import Vector2
+import random
+import pygame
+
+white = (255, 255, 255)
+black = (0, 0, 0)
+
+screen = pygame.display.set_mode((640, 480))
+star = pygame.image.load('star.png')
+rectangle = pygame.image.load('rectangle.png')
+triangle = pygame.image.load('triangle.png')
+shapes = [rectangle, star, triangle]
 
 
-class Entity(pg.sprite.Sprite):
+class MatchingShape:
 
-    def __init__(self, pos, *groups):
-        super().__init__(*groups)
-        self.image = pg.Surface((50, 30), pg.SRCALPHA)  # A transparent image.
-        # Draw a triangle onto the image.
-        pg.draw.polygon(self.image, pg.Color('dodgerblue2'),
-                        ((0, 0), (50, 15), (0, 30)))
-        # A reference to the original image to preserve the quality.
-        self.orig_image = self.image
-        self.rect = self.image.get_rect(center=pos)
-        self.vel = Vector2(0, 0)
-        self.pos = Vector2(pos)
+    def __init__(self):
+        self.x = None
+        self.rect = None
+        self.score = 0
 
-    def update(self):
-        # Subtract the pos vector from the mouse pos to get the heading,
-        # normalize this vector and multiply by the desired speed.
-        self.vel = (pg.mouse.get_pos() - self.pos).normalize() * 5
+    def rand_shape(self, shape, callback):
+        self.rect = shape.get_rect()
+        self.rect.center = (random.randint(0, 640), random.randint(0, 480))
+        screen.blit(shape, self.rect)
+        pygame.display.update()
+        callback(self.rect)
 
-        # Update the position vector and the rect.
-        self.pos += self.vel
-        self.rect.center = self.pos
-
-        # Rotate the image.
-        # `Vector2.as_polar` returns the polar coordinates (radius and angle).
-        radius, angle = self.vel.as_polar()
-        self.image = pg.transform.rotozoom(self.orig_image, -angle, 1)
-        self.rect = self.image.get_rect(center=self.rect.center)
+    def collision_test(self, shape_rect):
+        collided = False
+        while not collided:
+            for event in pygame.event.get():
+                if shape_rect.collidepoint(pygame.mouse.get_pos()) and event.type == pygame.MOUSEBUTTONDOWN:
+                    self.score += 1
+                    screen.fill(white)
+                    scoreboard()
+                    pygame.display.update()
+                    collided = True
 
 
-def main():
-    screen = pg.display.set_mode((640, 480))
-    clock = pg.time.Clock()
-    all_sprites = pg.sprite.Group()
-    entity = Entity((100, 300), all_sprites)
-
-    done = False
-
-    while not done:
-        for event in pg.event.get():
-            if event.type == pg.QUIT:
-                done = True
-
-        all_sprites.update()
-        screen.fill((30, 30, 30))
-        all_sprites.draw(screen)
-
-        pg.display.flip()
-        clock.tick(30)
+matching_shape = MatchingShape()
 
 
-if __name__ == '__main__':
-    pg.init()
-    main()
-    pg.quit()
+def randoms():
+    image = random.choice(shapes)
+    return image
+
+
+def trick_shape(shape):
+    images = shapes
+    images.remove(shape)
+    for item in images:
+        for i in range(3):
+            rect = item.get_rect()
+            rect.center = (random.randint(50, 490), random.randint(50, 430))
+            screen.blit(item, rect)
+    images.append(shape)
+
+
+def scoreboard():
+    system_font = pygame.font.get_default_font()
+    font = pygame.font.SysFont(system_font, 50)
+    text = font.render('Score: ' + str(matching_shape.score), 1, black)
+    center = text.get_rect(center=(80, 20))
+    screen.blit(text, center)
+
+
+previous_time = pygame.time.get_ticks()
+cooldown = 1000
+
+pygame.init()
+screen.fill(white)
+Running = True
+while Running:
+
+    current_time = pygame.time.get_ticks()
+    if current_time - previous_time >= cooldown:
+        previous_time = pygame.time.get_ticks()
+        random_shape = randoms()
+        print(random_shape)
+        trick_shape(random_shape)
+        matching_shape.rand_shape(random_shape, matching_shape.collision_test)
+
+        print(random_shape)
+pygame.quit()
