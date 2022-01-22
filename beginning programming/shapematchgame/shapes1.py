@@ -9,7 +9,7 @@ star = pygame.image.load('star.png')
 rectangle = pygame.image.load('rectangle.png')
 triangle = pygame.image.load('triangle.png')
 shapes = [rectangle, star, triangle]
-
+collisions = []
 
 class MatchingShape:
 
@@ -46,20 +46,24 @@ def randoms():
 
 
 def trick_shape(shape):
+    collisions.clear()
     images = shapes
     images.remove(shape)
-    for item in images:
-        for i in range(3):
+    for i in range(4):
+        for item in images:
             rect = item.get_rect()
-            rect.center = (random.randint(50, 490), random.randint(50, 430))
-            screen.blit(item, rect)
+            rect.center = (random.randint(0, 640), random.randint(0, 480))
+            if rect.collidelist(collisions) <= -1:
+                screen.blit(item, rect)
+                collisions.append(rect)
+    pygame.display.update()
     images.append(shape)
 
 
 def scoreboard():
     system_font = pygame.font.get_default_font()
     font = pygame.font.SysFont(system_font, 50)
-    text = font.render('Score: ' + str(matching_shape.score), 1, black)
+    text = font.render('Score: ' + str(matching_shape.score), True, black)
     center = text.get_rect(center=(80, 20))
     screen.blit(text, center)
 
@@ -76,9 +80,9 @@ while Running:
     if current_time - previous_time >= cooldown:
         previous_time = pygame.time.get_ticks()
         random_shape = randoms()
-        print(random_shape)
         trick_shape(random_shape)
         matching_shape.rand_shape(random_shape, matching_shape.collision_test)
 
-        print(random_shape)
+
+
 pygame.quit()
