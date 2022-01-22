@@ -1,5 +1,5 @@
 import random
-
+import threading
 import pygame
 
 white = (255, 255, 255)
@@ -26,9 +26,8 @@ class MatchingShape:
         pygame.display.update()
 
     def collision_test(self):
-        collider = self.rect
         for event in pygame.event.get():
-            if collider.collidepoint(pygame.mouse.get_pos()) and event.type == pygame.MOUSEBUTTONDOWN:
+            if self.rect.collidepoint(pygame.mouse.get_pos()) and event.type == pygame.MOUSEBUTTONDOWN:
                 self.score += 1
                 screen.fill(white)
                 scoreboard()
@@ -60,11 +59,6 @@ while Running:
         previous_time = current_time
         matching_shape.rand_shape()
         activated = 1
-
     if activated == 1:
         matching_shape.collision_test()
-
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            Running = False
-
+pygame.quit()
