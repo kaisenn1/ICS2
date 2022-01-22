@@ -1,63 +1,70 @@
-from setup import *
 import random
 
-screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-star = pygame.image.load('newstar.png')
+import pygame
+
+white = (255, 255, 255)
+black = (0, 0, 0)
+
+screen = pygame.display.set_mode((640, 480))
+star = pygame.image.load('star.png')
 rectangle = pygame.image.load('rectangle.png')
 shapes = [rectangle, star]
 
-class Cooldown():
+
+class MatchingShape:
 
     def __init__(self):
+        self.rect = None
         self.score = 0
 
-    def randShape(self):
-        image = shapes[random.randint(0, 1)]
-        rect = image.get_rect()
+    def rand_shape(self):
         screen.fill(white)
+        image = shapes[random.randint(0, 1)]
+        self.rect = image.get_rect()
+        self.rect.center = (random.randint(100, 600), random.randint(100, 400))
+        screen.blit(image, self.rect)
         pygame.display.update()
-        rect.center = (random.randint(100, 600), random.randint(100, 400))
-        screen.blit(image, rect)
-        pygame.display.update()
-        self.shapecopy = rect.copy()
-        return self.shapecopy
 
-    def clicktest(self):
-        collider = self.shapecopy
+    def collision_test(self):
+        collider = self.rect
         for event in pygame.event.get():
             if collider.collidepoint(pygame.mouse.get_pos()) and event.type == pygame.MOUSEBUTTONDOWN:
                 self.score += 1
                 screen.fill(white)
-                self.scoreboard()
+                scoreboard()
                 pygame.display.update()
-    def scoreboard(self):
-        sysfont = pygame.font.get_default_font()
-        font = pygame.font.SysFont(sysfont, 50)
-        text = font.render('Score:'+str(self.score), 1, black)
-        center = text.get_rect(center=(75,20))
-        screen.blit(text,center)
-testing = Cooldown()
 
-screen.fill(white)
-cooltime = 3000
-oldtime = pygame.time.get_ticks()
-running = True
+
+matching_shape = MatchingShape()
+
+
+def scoreboard():
+    system_font = pygame.font.get_default_font()
+    font = pygame.font.SysFont(system_font, 50)
+    text = font.render('Score: ' + str(matching_shape.score), 1, black)
+    center = text.get_rect(center=(75, 20))
+    screen.blit(text, center)
+
+
+previous_time = pygame.time.get_ticks()
+cooldown = 3000
+activated = 0
+
 pygame.init()
-p = 0
-while (running):
+
+Running = True
+while Running:
+    current_time = pygame.time.get_ticks()
+
+    if current_time - previous_time >= cooldown:
+        previous_time = current_time
+        matching_shape.rand_shape()
+        activated = 1
+
+    if activated == 1:
+        matching_shape.collision_test()
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False
+            Running = False
 
-    time = pygame.time.get_ticks()
-    if time - oldtime >= cooltime:
-        oldtime = time
-        testing.randShape()
-        p = 1
-    if p == 1:
-        testing.clicktest()
-
-
-
-pygame.quit()
