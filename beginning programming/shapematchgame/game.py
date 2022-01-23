@@ -7,13 +7,14 @@ black = (0, 0, 0)
 system_font = pygame.font.get_default_font()
 screen = pygame.display.set_mode((640, 480))
 star = pygame.image.load('star.png')
-rectangle = pygame.image.load('rectangle.png')
+plain_square = pygame.image.load('square.png')
 triangle = pygame.image.load('triangle.png')
-shapes = [rectangle, star, triangle]
+square = pygame.transform.scale(plain_square, (80,80))
+shapes = [square, star, triangle]
 collisions = []
 
 
-class MatchingShape:
+class MatchingShape:  # easier interaction between functions
 
     def __init__(self):
         self.rect = None
@@ -21,55 +22,60 @@ class MatchingShape:
 
     def rand_shape(self, shape, callback):
         self.rect = shape.get_rect()
-        self.rect.center = (random.randint(0, 640), random.randint(0, 480))
+        self.rect.center = (random.randint(0, 640), random.randint(75, 480))
         screen.blit(shape, self.rect)
         pygame.display.update()
         callback(self.rect)
 
     def collision_test(self, shape_rect):
         collided = False
-        while not collided:
-            for event in pygame.event.get():
-                if shape_rect.collidepoint(pygame.mouse.get_pos()) and event.type == pygame.MOUSEBUTTONDOWN:
+        while not collided:  # not collided looks bettter
+            for event in pygame.event.get():  # tests mouse collision
+                if shape_rect.collidepoint(
+                        pygame.mouse.get_pos()) and event.type == pygame.MOUSEBUTTONDOWN:  # if mouse clicks the correct shape, add score and reset
                     self.score += 1
                     screen.fill(white)
-                    scoreboard()
                     pygame.display.update()
                     collided = True
-                if not shape_rect.collidepoint(pygame.mouse.get_pos()) and event.type == pygame.MOUSEBUTTONDOWN:
+                if not shape_rect.collidepoint(
+                        pygame.mouse.get_pos()) and event.type == pygame.MOUSEBUTTONDOWN:  # if mouse does not click the correct shape or space around the shape, run end game func
                     end_scoreboard()
-
-
 
 
 matching_shape = MatchingShape()
 
 
-def randoms():
+def randoms():  # random shape func
     image = random.choice(shapes)
     return image
 
 
-def trick_shape(shape):
+def trick_shape(shape):  # shapes meant to distract from the single main shape
     collisions.clear()
     images = shapes
     images.remove(shape)
     for i in range(6):
         for item in images:
             rect = item.get_rect()
-            rect.center = (random.randint(0, 640), random.randint(50, 480))
-            if rect.collidelist(collisions) <= -1:
+            rect.center = (random.randint(0, 640), random.randint(75, 480))
+            if rect.collidelist(collisions) <= -1:  # checks if trick shape will overlap with another trick shape
                 screen.blit(item, rect)
-                collisions.append(rect)
+                collisions.append(rect)  # adds shape to list of taken positions
     pygame.display.update()
-    images.append(shape)
+    images.append(shape)  # needs to be put back after being temporarily removed or list will get smaller and smaller
 
 
-def scoreboard():
+def scoreboard(random_shape):
     font = pygame.font.SysFont(system_font, 50)
     text = font.render('Score: ' + str(matching_shape.score), True, black)
+    shape = font.render('Shape:', True, black)
+    matched_shape = pygame.transform.scale(random_shape, (25, 25))
+    shape_center = text.get_rect(center=(550, 20))
     center = text.get_rect(center=(80, 20))
+    matched_shape_center = matched_shape.get_rect(center=(620, 19))
     screen.blit(text, center)
+    screen.blit(shape, shape_center)
+    screen.blit(matched_shape, matched_shape_center)
 
 
 def end_scoreboard():
@@ -82,24 +88,22 @@ def end_scoreboard():
     screen.blit(text, center)
     screen.blit(high_score, below_center)
     pygame.display.update()
+    pygame.time.wait(3000)
+    pygame.quit()
+    exit('Fail')
 
-
-previous_time = pygame.time.get_ticks()
-cooldown = 1000
 
 pygame.init()
 pygame.font.init()
 screen.fill(white)
 
-Running = True
-while Running:
+while True:
 
-    random_shape = randoms()
-    trick_shape(random_shape)
-    matching_shape.rand_shape(random_shape, matching_shape.collision_test)
+    random_shape = randoms()  # get a random shape
+    scoreboard(random_shape)
+    trick_shape(random_shape)  # pass random shape into trick shape so trick shapes cannot be the chosen random shape
+    matching_shape.rand_shape(random_shape, matching_shape.collision_test)  # pass random shape as main shape
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False
-    pygame.display.update()
-pygame.quit()
+            pygame.quit()
