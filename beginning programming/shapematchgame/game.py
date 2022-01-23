@@ -1,3 +1,6 @@
+# Title: Shape Match Game
+# Author: Kaisen
+# Date: January 21, 2022
 import random
 import pygame
 
@@ -9,7 +12,7 @@ screen = pygame.display.set_mode((640, 480))
 star = pygame.image.load('star.png')
 plain_square = pygame.image.load('square.png')
 triangle = pygame.image.load('triangle.png')
-square = pygame.transform.scale(plain_square, (80,80))
+square = pygame.transform.scale(plain_square, (80, 80))
 shapes = [square, star, triangle]
 collisions = []
 
@@ -37,8 +40,7 @@ class MatchingShape:  # easier interaction between functions
                     screen.fill(white)
                     pygame.display.update()
                     collided = True
-                if not shape_rect.collidepoint(
-                        pygame.mouse.get_pos()) and event.type == pygame.MOUSEBUTTONDOWN:  # if mouse does not click the correct shape or space around the shape, run end game func
+                if not shape_rect.collidepoint(pygame.mouse.get_pos()) and event.type == pygame.MOUSEBUTTONDOWN:  # if mouse does not click the correct shape or space around the shape, run end game func
                     end_scoreboard()
 
 
