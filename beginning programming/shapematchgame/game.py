@@ -20,15 +20,14 @@ collisions = []
 class MatchingShape:  # easier interaction between functions
 
     def __init__(self):
-        self.rect = None
         self.score = 0
 
     def rand_shape(self, shape, callback):
-        self.rect = shape.get_rect()
-        self.rect.center = (random.randint(0, 640), random.randint(75, 480))
-        screen.blit(shape, self.rect)
+        rect = shape.get_rect()
+        rect.center = (random.randint(0, 640), random.randint(75, 480))
+        screen.blit(shape, rect)
         pygame.display.update()
-        callback(self.rect)
+        callback(rect)
 
     def collision_test(self, shape_rect):
         not_collided = True
